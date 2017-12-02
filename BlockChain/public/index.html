@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1 id="response">No Res</h1>
+
+<button onclick="contactServer()"> WebServer</button>
+
+<script>
+    function contactServer() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               // let name = JSON.parse(this.responseText)
+                document.getElementById("response").innerHTML =  this.responseText
+            }
+        };
+        xhttp.open("GET", "ajax-request", true);
+        xhttp.send();
+    }
+
+    </script>
+</body>
+</html>
+
+
